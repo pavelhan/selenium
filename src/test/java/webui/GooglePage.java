@@ -15,8 +15,7 @@ public class GooglePage extends BasePage {
         super(driver);
     }
 
-    @FindBy(css = ".srg .g:nth-child(1)")
-    WebElement firstResult;
+    By firstResult = by(".srg .g:nth-child(1)");
 
 
     public void searchMore(String text) {
@@ -27,5 +26,7 @@ public class GooglePage extends BasePage {
         open("http://google.com");
     }
 
-
+    public void followFirstResult(){
+        $(firstResult).findElement(by(".r a")).click();
+    }
 }
